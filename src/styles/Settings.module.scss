@@ -1,0 +1,28 @@
+.wrapper {
+    position: fixed;
+    left: 0;
+}
+
+.toggleButton {
+    z-index: 2;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+}
+
+.menuContainer {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    width: 20vw;
+    max-width: 320px;
+    min-width: 200px;
+    height: 100vh;
+    background-color: #222;
+    transition: transform ease 0.4s;
+    transform: translateX(-100%);
+
+    &.open {
+        transform: translateX(0);
+    }
+}

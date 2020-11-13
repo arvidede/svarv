@@ -1,0 +1,36 @@
+.wrapper {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+}
+
+.button {
+    background: none;
+    border: none;
+    outline: none;
+    margin: 0 1rem;
+    padding: 0;
+    transition: transform ease 0.2s;
+
+    svg {
+        color: rgba(0, 0, 0, 0.5);
+        width: 2rem;
+        height: 2.5rem;
+    }
+
+    &.active {
+        svg {
+            color: rgba(0, 0, 0, 1);
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        transform: scaleY(0.95);
+    }
+
+    &:active {
+        cursor: pointer;
+        transform: scaleY(0.85);
+    }
+}
