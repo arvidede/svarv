@@ -17,6 +17,10 @@ const SlideItem: FC<SlideItemProps> = ({ content }) => {
         switch (content.type) {
             case 'text':
                 return <TextField text={content.text} isFocused={isFocused} />
+            case 'image':
+                return <img />
+            case 'shape':
+                return <div />
             default:
                 return null
         }

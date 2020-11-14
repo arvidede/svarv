@@ -1,13 +1,17 @@
 export type TextFieldContent = TextFieldItem | TextFieldList
 
+interface TextStyle {
+    fontSize: number
+    fontFamily: string
+    fontStyle: 'normal' | 'bold' | 'italics'
+    textAlign: 'left' | 'center' | 'right'
+}
+
 export interface TextFieldItem {
     id: string
     type: 'h1' | 'h2' | 'h3' | 'p' | 'li'
     value: string
-    style?: {
-        fontSize: number
-        fontFamily: string
-    }
+    style?: Partial<TextStyle>
 }
 
 export interface TextFieldList {

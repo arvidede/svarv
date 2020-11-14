@@ -1,8 +1,21 @@
-.textArea {
-    outline: none;
-    background: transparent;
-    border: dotted 1px rgba(0, 0, 255, 0.25);
-    resize: none;
-    padding: 0;
-    margin: 0;
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    h1,
+    h2,
+    h3,
+    p,
+    li {
+        outline: none;
+    }
+}
+
+.itemSettings {
+    background-color: #ddd;
+    position: absolute;
+    top: -0.5rem;
+    transform: translateY(-100%);
+    padding: 0.5rem;
 }

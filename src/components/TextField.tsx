@@ -1,45 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
+import { TextFieldContent, mapTextToContent, useSlides } from '../utils'
 import styles from '../styles/TextField.module.scss'
-import { TextFieldContent } from '../utils/types'
-
-const mapTextToContent = (text: TextFieldContent) => {
-    switch (text.type) {
-        case 'h1':
-            return (
-                <h1 key={text.value} style={text.style}>
-                    {text.value}
-                </h1>
-            )
-        case 'h2':
-            return (
-                <h2 key={text.value} style={text.style}>
-                    {text.value}
-                </h2>
-            )
-        case 'h3':
-            return (
-                <h3 key={text.value} style={text.style}>
-                    {text.value}
-                </h3>
-            )
-        case 'p':
-            return (
-                <p key={text.value} style={text.style}>
-                    {text.value}
-                </p>
-            )
-        case 'li':
-            return (
-                <li key={text.value} style={text.style}>
-                    {text.value}
-                </li>
-            )
-        case 'ul':
-            return <ul key={text.id}>{text.value.map(mapTextToContent)}</ul>
-        case 'ol':
-            return <ol>{text.value.map(mapTextToContent)}</ol>
-    }
-}
 
 interface TextFieldProps {
     isFocused: boolean
@@ -47,9 +8,27 @@ interface TextFieldProps {
 }
 
 const TextField: FC<TextFieldProps> = ({ isFocused, text }) => {
+    const { addTextItem } = useSlides()
+    const [focusedTextItem, setFocusedTextItem] = useState<TextFieldContent>()
+
+    useEffect(() => {
+        if (isFocused) {
+            const handleEnterPressed = (e: KeyboardEvent) => {
+                if (e.key === 'Enter') {
+                    addTextItem()
+                }
+            }
+            document.addEventListener('keydown', handleEnterPressed)
+            return () =>
+                document.removeEventListener('keydown', handleEnterPressed)
+        }
+    }, [isFocused])
+
     return (
-        <div>
-            {text.map(mapTextToContent)}
+        <div className={styles.wrapper}>
+            {text.map((item) =>
+                mapTextToContent(item, () => setFocusedTextItem(item))
+            )}
             {isFocused && <TextFieldSettings />}
         </div>
     )

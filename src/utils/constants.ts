@@ -10,6 +10,7 @@ const TEXT_OBJECT: TextObject = {
             style: {
                 fontFamily: 'sans-serif',
                 fontSize: 12,
+                textAlign: 'center',
             },
         },
         {
@@ -18,7 +19,7 @@ const TEXT_OBJECT: TextObject = {
             value: [
                 {
                     id: uuid(),
-                    type: 'li',
+                    type: 'p',
                     value: 'Ettan i listan',
                     style: {
                         fontFamily: 'sans-serif',
@@ -27,7 +28,7 @@ const TEXT_OBJECT: TextObject = {
                 },
                 {
                     id: uuid(),
-                    type: 'li',
+                    type: 'p',
                     value: 'Tvåan i listan',
                     style: {
                         fontFamily: 'sans-serif',
