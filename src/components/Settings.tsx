@@ -30,10 +30,15 @@ const Settings: FC<SettingsProps> = ({ isOpen, onToggleMenu }) => {
                     false && ''
                 )}
             >
+                <h3>Slide Settings</h3>
                 <ColorItem
                     color={currentSlide.color}
                     onChangeColor={handleChangeColor}
                 />
+                <h3>Insert</h3>
+                <p>Text</p>
+                <p>Image</p>
+                <p>Shape</p>
             </div>
             <button className={styles.toggleButton} onClick={onToggleMenu}>
                 X

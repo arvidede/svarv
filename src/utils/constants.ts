@@ -16,7 +16,7 @@ const TEXT_OBJECT: TextObject = {
 export const DUMMY_SLIDES: SlideType[] = [
     {
         number: 1,
-        content: [TEXT_OBJECT, TEXT_OBJECT],
+        content: [TEXT_OBJECT],
         color: '#fff',
     },
     {

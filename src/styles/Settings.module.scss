@@ -43,6 +43,10 @@
     &:not(:last-of-type) {
         border-bottom: solid 1px #444;
     }
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .colorItemWrapper {
