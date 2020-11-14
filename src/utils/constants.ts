@@ -1,11 +1,42 @@
 import { SlideType, TextObject } from './types'
+import { v4 as uuid } from 'uuid'
 
 const TEXT_OBJECT: TextObject = {
-    style: {
-        fontFamily: 'sans-serif',
-        fontSize: 12,
-    },
-    text: 'En lång mening',
+    text: [
+        {
+            id: uuid(),
+            type: 'p',
+            value: 'En lång mening',
+            style: {
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+            },
+        },
+        {
+            id: uuid(),
+            type: 'ol',
+            value: [
+                {
+                    id: uuid(),
+                    type: 'li',
+                    value: 'Ettan i listan',
+                    style: {
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                    },
+                },
+                {
+                    id: uuid(),
+                    type: 'li',
+                    value: 'Tvåan i listan',
+                    style: {
+                        fontFamily: 'sans-serif',
+                        fontSize: 12,
+                    },
+                },
+            ],
+        },
+    ],
     type: 'text',
     position: {
         top: 100,

@@ -10,8 +10,6 @@ export const mapStyles = (style: any) => {
     return {}
 }
 
-export const mapPosition = (position: Position) => {
-    return {
-        transform: `translate(${position.left}px, ${position.top}px)`,
-    } as CSSProperties
-}
+export const mapPosition = (position: Position): CSSProperties => ({
+    transform: `translate(${position.left}px, ${position.top}px)`,
+})

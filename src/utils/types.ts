@@ -1,3 +1,21 @@
+export type TextFieldContent = TextFieldItem | TextFieldList
+
+export interface TextFieldItem {
+    id: string
+    type: 'h1' | 'h2' | 'h3' | 'p' | 'li'
+    value: string
+    style?: {
+        fontSize: number
+        fontFamily: string
+    }
+}
+
+export interface TextFieldList {
+    id: string
+    type: 'ul' | 'ol'
+    value: TextFieldItem[]
+}
+
 export interface Position {
     top: number
     left: number
@@ -5,25 +23,22 @@ export interface Position {
 
 interface SlideObject {
     position: Position
-    style: object
 }
 
 export interface TextObject extends SlideObject {
-    style: {
-        fontSize: number
-        fontFamily: string
-    }
-    text: string
+    text: TextFieldContent[]
     type: 'text'
 }
 
 export interface ImageObject extends SlideObject {
     src: string
     type: 'image'
+    style?: object
 }
 
 export interface ShapeObject extends SlideObject {
     type: 'shape'
+    style?: object
 }
 
 export type ContentObject = TextObject | ImageObject | ShapeObject

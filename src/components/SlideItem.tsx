@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
-import { ContentObject, mapPosition, mapStyles } from '../utils/'
+import { ContentObject, mapPosition } from '../utils/'
+import { TextField } from './'
 import styles from '../styles/SlideItem.module.scss'
 import clsx from 'clsx'
 
@@ -15,14 +16,7 @@ const SlideItem: FC<SlideItemProps> = ({ content }) => {
     const renderItem = () => {
         switch (content.type) {
             case 'text':
-                return (
-                    <textarea
-                        className={styles.textArea}
-                        // disabled={!isFocused}
-                        value={content?.text}
-                        style={mapStyles(content.style)}
-                    ></textarea>
-                )
+                return <TextField text={content.text} isFocused={isFocused} />
             default:
                 return null
         }
