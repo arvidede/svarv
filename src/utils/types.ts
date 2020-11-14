@@ -1,32 +1,42 @@
-interface Position {
+export interface Position {
     top: number
     left: number
 }
 
 interface SlideObject {
     position: Position
+    style: object
 }
 
-interface TextObject extends SlideObject {
-    fontSize: number
-    fontFamily: 'string'
+export interface TextObject extends SlideObject {
+    style: {
+        fontSize: number
+        fontFamily: string
+    }
+    text: string
+    type: 'text'
 }
 
-interface ImageObject extends SlideObject {
-    src: 'string'
+export interface ImageObject extends SlideObject {
+    src: string
+    type: 'image'
 }
 
-export type ContentObject = TextObject | ImageObject
+export interface ShapeObject extends SlideObject {
+    type: 'shape'
+}
+
+export type ContentObject = TextObject | ImageObject | ShapeObject
+
+export interface SlideType {
+    number: number
+    content?: ContentObject[]
+    color: string
+}
 
 export interface Color {
     r: number
     g: number
     b: number
     a?: number
-}
-
-export interface SlideType {
-    number: number
-    content?: any[]
-    color?: string
 }
